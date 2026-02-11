@@ -1,26 +1,504 @@
 @import "tailwindcss";
 
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fafafa;
+  --bg-white: #ffffff;
+  --text-primary: #0f0f0f;
+  --text-secondary: #4a4a4a;
+  --text-muted: #888888;
+  --accent: #0070f3;
+  --accent-hover: #0051b3;
+  --accent-light: #e8f0fe;
+  --border: #e5e5e5;
+  --border-strong: #d0d0d0;
+  --header-height: 64px;
+  --max-width: 1100px;
+  --article-width: 720px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: var(--header-height);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: var(--text-primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+}
+
+.logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-nav a {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover {
+  background: #f0f0f0;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   MAIN & LAYOUT
+   ============================================ */
+.site-main {
+  min-height: calc(100vh - var(--header-height) - 120px);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  margin-top: 80px;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-copy {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.footer-disclosure {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   TOP PAGE
+   ============================================ */
+.home-hero {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  padding: 64px 24px 56px;
+}
+
+.home-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.home-hero-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.home-hero h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.home-hero p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.home-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.article-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.article-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.article-card-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.article-card h2 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.article-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.article-card-cta {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+/* ============================================
+   ARTICLE PAGE
+   ============================================ */
+.article-container {
+  max-width: var(--article-width);
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* MDX Prose Styles */
+.article-container h1 {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-container h2 {
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+.article-container h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.article-container h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.article-container p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.article-container a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.article-container a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.article-container strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.article-container em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Lists */
+.article-container ul,
+.article-container ol {
+  margin-bottom: 20px;
+  padding-left: 24px;
+}
+
+.article-container li {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.article-container ul li {
+  list-style-type: disc;
+}
+
+.article-container ol li {
+  list-style-type: decimal;
+}
+
+/* Blockquote 窶� internal links */
+.article-container blockquote {
+  margin: 28px 0;
+  padding: 16px 20px;
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.article-container blockquote p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #1a4a8a;
+  margin-bottom: 0;
+}
+
+.article-container blockquote a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Tables */
+.article-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.article-container th {
+  background: #f5f5f5;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.article-container td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.article-container tr:last-child td {
+  border-bottom: none;
+}
+
+.article-container tr:hover td {
+  background: #fafafa;
+}
+
+/* Horizontal Rule */
+.article-container hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* Code */
+.article-container code {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: var(--font-geist-mono), monospace;
+  color: #d63384;
+}
+
+.article-container pre {
+  background: #1a1a1a;
+  padding: 20px 24px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.article-container pre code {
+  background: none;
+  color: #e5e5e5;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero {
+    padding: 40px 20px 36px;
+  }
+
+  .home-content {
+    padding: 36px 20px;
+  }
+
+  .article-container {
+    padding: 32px 20px 60px;
+  }
+
+  .article-container h1 {
+    font-size: 26px;
+  }
+
+  .article-container h2 {
+    font-size: 20px;
+  }
+
+  .article-container p,
+  .article-container li {
+    font-size: 16px;
+  }
+
+  .article-container table {
+    font-size: 13px;
+  }
+
+  .article-container th,
+  .article-container td {
+    padding: 10px 12px;
+  }
 }

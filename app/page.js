@@ -1,65 +1,65 @@
-import Image from "next/image";
+export const metadata = {
+  title: "Tool Finder Lab — Honest AI Tool Reviews for Beginners",
+  description: "Honest, beginner-friendly reviews of the best AI tools in 2026. Find the right tool for writing, video, and content creation.",
+};
+
+const articles = [
+  {
+    href: "/articles/best-ai-writing-tools-2026",
+    tag: "Comparison",
+    title: "Best AI Writing Tools 2026",
+    description: "Top 7 AI writing tools compared honestly. Find the right tool for your budget and workflow—including free options.",
+  },
+  {
+    href: "/articles/best-ai-video-tools-2026",
+    tag: "Comparison",
+    title: "Best AI Video Tools 2026",
+    description: "Avatar-based vs text-to-video explained. Which type fits your content—and which tool to start with.",
+  },
+  {
+    href: "/articles/writesonic-review-2026",
+    tag: "Review",
+    title: "Writesonic Review 2026",
+    description: "Is Writesonic worth $39/month for beginners? An honest look at features, pricing, and when to skip it.",
+  },
+  {
+    href: "/articles/best-ai-tools-content-creators-2026",
+    tag: "Guide",
+    title: "Best AI Tools for Content Creators 2026",
+    description: "Build your first AI stack by workflow stage. Start free, add paid tools only when your volume justifies it.",
+  },
+  {
+    href: "/articles/heygen-review-2026",
+    tag: "Review",
+    title: "HeyGen Review 2026",
+    description: "The best AI avatar video tool for beginners? Honest look at pricing, credit system, and who should buy it.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="home-hero">
+        <div className="home-hero-inner">
+          <span className="home-hero-badge">AI Tools · 2026</span>
+          <h1>Find the Right AI Tool.<br />Without the Overwhelm.</h1>
+          <p>Honest, beginner-friendly reviews of the best AI tools for writing, video, and content creation. We tell you who should buy—and who should skip.</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <div className="home-content">
+        <p className="section-title">All Articles</p>
+        <div className="articles-grid">
+          {articles.map((article) => (
+            <a key={article.href} href={article.href} className="article-card">
+              <span className="article-card-tag">{article.tag}</span>
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <span className="article-card-cta">Read article →</span>
+            </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }

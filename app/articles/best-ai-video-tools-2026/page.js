@@ -17,5 +17,9 @@ export const metadata = {
 }
 
 export default function Page() {
-  return <Article />
+  return (
+    <div className="article-container">
+      <Article />
+    </div>
+  )
 }
