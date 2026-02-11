@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,33 +21,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-PHNGVRNWGY"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-PHNGVRNWGY');
-            `,
-          }}
-        />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <header className="site-header">
           <div className="header-inner">
-            <a href="/" className="site-logo">
+            <Link href="/" className="site-logo">
               <span className="logo-mark">TFL</span>
               <span className="logo-text">Tool Finder Lab</span>
-            </a>
+            </Link>
             <nav className="site-nav">
-              <a href="/articles/best-ai-writing-tools-2026">Writing</a>
-              <a href="/articles/best-ai-video-tools-2026">Video</a>
-              <a href="/articles/best-ai-tools-content-creators-2026">For Creators</a>
+              <Link href="/articles/best-ai-writing-tools-2026">Writing</Link>
+              <Link href="/articles/best-ai-video-tools-2026">Video</Link>
+              <Link href="/articles/best-ai-tools-content-creators-2026">For Creators</Link>
             </nav>
           </div>
         </header>
@@ -58,6 +44,7 @@ export default function RootLayout({ children }) {
             <p className="footer-disclosure">This site contains affiliate links. We may earn a commission if you purchase through our links, at no extra cost to you.</p>
           </div>
         </footer>
+        <GoogleAnalytics gaId="G-PHNGVRNWGY" />
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Tool Finder Lab — Honest AI Tool Reviews for Beginners",
   description: "Honest, beginner-friendly reviews of the best AI tools in 2026. Find the right tool for writing, video, and content creation.",
@@ -51,12 +53,12 @@ export default function Home() {
         <p className="section-title">All Articles</p>
         <div className="articles-grid">
           {articles.map((article) => (
-            <a key={article.href} href={article.href} className="article-card">
+            <Link key={article.href} href={article.href} className="article-card">
               <span className="article-card-tag">{article.tag}</span>
               <h2>{article.title}</h2>
               <p>{article.description}</p>
               <span className="article-card-cta">Read article →</span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
