@@ -36,6 +36,12 @@ const articles = [
     title: "HeyGen Review 2026",
     description: "The best AI avatar video tool for beginners? Honest look at pricing, credit system, and who should buy it.",
   },
+  {
+    href: "/articles/best-ai-seo-tools-2026",
+    tag: "Comparison",
+    title: "8 Best AI SEO Tools in 2026",
+    description: "I tested 20+ AI SEO tools to find the 8 best. From Semrush to budget picks like Frase, here's what actually works.",
+  },
 ];
 
 export default function Home() {

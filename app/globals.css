@@ -366,7 +366,7 @@ body {
   list-style-type: decimal;
 }
 
-/* Blockquote 窶� internal links */
+/* Blockquote 遯ｶ�ｽ internal links */
 .article-container blockquote {
   margin: 28px 0;
   padding: 16px 20px;
@@ -625,7 +625,6 @@ body {
 }
 
 .tool-card li:before {
-  content: '笆ｸ';
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -675,7 +674,6 @@ body {
 }
 
 .pros-list li:before {
-  content: '笨�';
   position: absolute;
   left: 0;
   color: #10b981;
@@ -684,7 +682,6 @@ body {
 }
 
 .cons-list li:before {
-  content: '笨�';
   position: absolute;
   left: 0;
   color: #ef4444;
@@ -1016,4 +1013,14 @@ body {
     padding: 12px 24px;
     font-size: 15px;
   }
+}
+/* CTA Button Override (must come after article-container a styles) */
+.article-container .cta-button {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.article-container .cta-button:hover {
+  color: white !important;
+  text-decoration: none !important;
 }
