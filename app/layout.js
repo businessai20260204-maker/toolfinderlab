@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Tool Finder Lab — AI Tool Reviews for Beginners",
+  alternates: {
+    canonical: '/',
+  },
   description: "Honest, beginner-friendly reviews of the best AI tools in 2026. Find the right tool for writing, video, and content creation.",
 };
 

@@ -3,6 +3,9 @@ import Article from './content.mdx'
 export const metadata = {
   title: "Writesonic Review 2026: Is It Worth It for Beginners? | Tool Finder Lab",
   description: "An honest Writesonic review for beginners in 2026. We cover pricing, key features, real user feedback, and exactly who should (and shouldn't) buy it.",
+  alternates: {
+    canonical: '/articles/writesonic-review-2026',
+  },
   keywords: [
     'Writesonic review 2026',
     'is Writesonic worth it',

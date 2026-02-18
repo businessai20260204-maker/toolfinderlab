@@ -3,6 +3,9 @@ import Article from './content.mdx'
 export const metadata = {
   title: "Best AI Tools for Content Creators 2026: Beginner's Guide | Tool Finder Lab",
   description: "New to AI tools? We break down the best AI tools for content creators by workflow stage—so you know exactly what to use, when, and why.",
+  alternates: {
+    canonical: '/articles/best-ai-tools-content-creators-2026',
+  },
   keywords: [
     'best AI tools for content creators 2026',
     'AI tools for content creators beginners',
