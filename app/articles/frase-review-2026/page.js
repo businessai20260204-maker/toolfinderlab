@@ -1,4 +1,4 @@
-import FraseReviewContent from './content.mdx'
+import Article from './content.mdx'
 
 export const metadata = {
   title: 'Frase Review 2026: Is $15/Month Worth It? | Tool Finder Lab',
@@ -29,6 +29,10 @@ export const metadata = {
   },
 }
 
-export default function FraseReview() {
-  return <FraseReviewContent />
+export default function Page() {
+  return (
+    <div className="article-container">
+      <Article />
+    </div>
+  )
 }
