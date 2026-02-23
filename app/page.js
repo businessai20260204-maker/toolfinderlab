@@ -7,6 +7,12 @@ export const metadata = {
 
 const articles = [
   {
+    href: "/articles/frase-review-2026",
+    tag: "Review",
+    title: "Frase Review 2026: Is $15/Month Worth It?",
+    description: "Honest Frase review after 6 months of use. Compare vs Surfer SEO, pricing, AI Writer quality, and who should buy.",
+  },
+  {
     href: "/articles/best-ai-writing-tools-2026",
     tag: "Comparison",
     title: "Best AI Writing Tools 2026",

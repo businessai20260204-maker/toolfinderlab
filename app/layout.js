@@ -14,11 +14,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Tool Finder Lab — AI Tool Reviews for Beginners",
+  title: {
+    default: "Tool Finder Lab — Honest AI Tool Reviews for Beginners",
+    template: "%s | Tool Finder Lab",
+  },
   alternates: {
     canonical: '/',
   },
-  description: "Honest, beginner-friendly reviews of the best AI tools in 2026. Find the right tool for writing, video, and content creation.",
+  description: "Honest, beginner-friendly reviews of the best AI tools in 2026. Find the right tool for writing, video, SEO, and content creation.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://toolfinderlab.com',
+    siteName: 'Tool Finder Lab',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@ToolFinderLab',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -34,6 +55,7 @@ export default function RootLayout({ children }) {
             <nav className="site-nav">
               <Link href="/articles/best-ai-writing-tools-2026">Writing</Link>
               <Link href="/articles/best-ai-video-tools-2026">Video</Link>
+              <Link href="/articles/best-ai-seo-tools-2026">SEO</Link>
               <Link href="/articles/best-ai-tools-content-creators-2026">For Creators</Link>
             </nav>
           </div>
